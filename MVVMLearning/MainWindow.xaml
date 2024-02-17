@@ -1,0 +1,49 @@
+﻿<Window x:Class="MVVMLearning.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MVVMLearning"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.RowSpan="3" Background="DarkSlateGray"/>
+
+            <StackPanel Grid.Row="1">
+                <Button Content="Clients" Height="30" Command="{Binding ClientNavCommand}"/>
+                <Button Content="Product" Height="30" Command="{Binding ProductNavCommand}"/>
+            </StackPanel>
+
+            <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Button Content="Add" Command="{Binding AddCommand}"/>
+            <Button Grid.Column="1" Content="Edit" Command="{Binding EditCommand}"/>
+            <Button Grid.Column="2" Content="Delete" Command="{Binding DeleteCommand}"/>
+            <Button Grid.Column="2" Grid.Row="1" Content="Save" Command="{Binding SaveCommand}"/>
+        </Grid>
+
+        <ContentControl Name="MContent" Content="{Binding ActiveUserControl}"  Grid.RowSpan="3" Grid.Column="1" Grid.ColumnSpan="2"/>
+
+    </Grid>
+</Window>
